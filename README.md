@@ -1,115 +1,149 @@
-# AI-Driven Retail Inventory & Pricing Assistant
+# Nigeria Property Hub - AI-Powered Property & Mortgage Marketplace
 
-A full-stack application designed to help small market traders in Nigeria optimize stock levels and pricing. The system reduces losses from over-stocking and under-pricing by forecasting demand based on seasonality, local events, and consumer trends.
+A comprehensive web platform designed to address Nigeria's housing deficit by providing AI-powered property listings, fair rent predictions, and personalized mortgage solutions.
 
 ## Features
 
-- **User Accounts & Merchant Dashboard**: Sign up, log in, and manage multiple product categories
-- **Inventory Management**: Add products, record sales, receive low-stock alerts, barcode/QR code support
-- **Demand Forecasting**: ML-powered predictions based on historical data, seasonality, holidays, and local events
-- **Pricing Recommendations**: Dynamic pricing suggestions to maximize profit while staying competitive
-- **Event & Trend Data**: Nigerian public holidays, school terms, and regional events integration
-- **Notifications & Reports**: Weekly email/SMS reports, real-time alerts for critical stock levels
-- **Progressive Web App**: Works offline on low-end smartphones
+### 1. Homepage
+- Engaging landing page showcasing the platform's mission
+- Prominent search bar for property listings
+- AI-driven rent prediction highlights
+- Featured properties showcase
+- Popular locations quick access
+
+### 2. Property Listings
+- Comprehensive property listings with high-quality images
+- AI-generated fair rent predictions for each property
+- Advanced filtering by:
+  - Location
+  - Price range
+  - Property type (apartment, detached, semi-detached, duplex, bungalow)
+  - Number of bedrooms
+- Favorite properties feature
+- Mobile-responsive grid layout
+
+### 3. Property Details
+- Detailed property information with image gallery
+- AI-powered fair rent predictions with confidence scores
+- Property features and amenities
+- Inquiry form for contacting agents
+- Interactive property overview
+
+### 4. Mortgage Services
+- Interactive mortgage calculator
+- Mortgage matching tool based on user profile:
+  - Monthly income
+  - Credit score
+  - Employment type
+  - Down payment capacity
+- Comprehensive list of Nigerian mortgage banks (NMRC, FMBN, GTBank, etc.)
+- Interest rates and terms comparison
+- Direct application submission
+
+### 5. User Dashboard
+- Personalized dashboard with saved properties
+- Mortgage application tracking
+- Account settings management
+- Premium subscription status
+- Notification preferences
+
+### 6. Analytics Dashboard (Premium)
+- Real-time market trends and insights
+- Price trends by location
+- Property type distribution
+- Demand analysis
+- Investment recommendations
+- Data-driven insights for property investors
+
+### 7. Contact & Support
+- Contact form with email notifications
+- FAQ section
+- Business hours and location information
+- Multiple contact methods (email, phone, office)
+
+### 8. Authentication
+- Email/password registration and login
+- Google OAuth integration
+- Password reset functionality
+- Secure user profile management
 
 ## Technology Stack
 
 ### Frontend
-- React 18 with TypeScript
-- Vite for build tooling
-- Progressive Web App (PWA) with offline capabilities
-- Tailwind CSS for responsive design
-- Recharts for data visualization
-- React Query for data fetching
+- **React 18** - Modern UI library
+- **Vite** - Fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **React Router** - Client-side routing
+- **React Query** - Data fetching and caching
+- **Zustand** - State management
+- **React Helmet Async** - SEO optimization
+- **Recharts** - Data visualization
+- **React Icons** - Icon library
+- **React Hot Toast** - Toast notifications
 
 ### Backend
-- Python FastAPI for REST API
-- MongoDB for data storage
-- JWT authentication
-- Pydantic for data validation
+- **FastAPI** - Modern Python web framework
+- **SMTP** - Email notifications
+- **Python-dotenv** - Environment configuration
 
-### AI/ML Module
-- Prophet for time-series forecasting
-- scikit-learn for demand prediction
-- Pandas for data preprocessing
-- joblib for model persistence
-
-### Notifications
-- Brevo/Sendinblue for email
-- Africa's Talking / Twilio for SMS/WhatsApp
+### Services
+- **Firebase** - Authentication, Firestore database, Storage
+- **Cloudinary** - Image hosting and optimization
+- **SMTP** - Email delivery (Gmail, SendGrid, etc.)
 
 ## Project Structure
 
 ```
 .
-├── backend/              # FastAPI backend application
-│   ├── app/
-│   │   ├── main.py      # Application entry point
-│   │   ├── config.py    # Configuration management
-│   │   ├── models/      # Database models
-│   │   ├── routes/      # API endpoints
-│   │   ├── services/    # Business logic
-│   │   ├── ml/          # ML integration
-│   │   └── utils/       # Utility functions
-│   ├── requirements.txt
-│   └── .env.example
-├── frontend/            # React PWA frontend
+├── frontend/                 # React frontend application
 │   ├── src/
-│   │   ├── components/  # Reusable components
-│   │   ├── pages/       # Page components
-│   │   ├── services/    # API services
-│   │   ├── context/     # React context
-│   │   └── utils/       # Utility functions
-│   ├── public/
+│   │   ├── components/      # Reusable components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── pages/           # Page components
+│   │   │   ├── Home.jsx
+│   │   │   ├── PropertyListings.jsx
+│   │   │   ├── PropertyDetails.jsx
+│   │   │   ├── MortgageServices.jsx
+│   │   │   ├── UserDashboard.jsx
+│   │   │   ├── Analytics.jsx
+│   │   │   ├── Contact.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Register.jsx
+│   │   ├── services/        # API services
+│   │   │   ├── authService.js
+│   │   │   ├── propertyService.js
+│   │   │   ├── mortgageService.js
+│   │   │   └── emailService.js
+│   │   ├── store/           # State management
+│   │   │   ├── authStore.js
+│   │   │   └── propertyStore.js
+│   │   ├── config/          # Configuration
+│   │   │   ├── firebase.js
+│   │   │   └── cloudinary.js
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │   ├── package.json
 │   └── .env.example
-├── ml_module/           # ML training and prediction
-│   ├── train.py         # Model training script
-│   ├── predict.py       # Prediction functions
-│   ├── data/            # Sample datasets
-│   └── models/          # Trained models
-└── docs/                # Documentation
+├── backend/                 # FastAPI backend
+│   ├── app/
+│   │   └── main.py         # SMTP email API
+│   ├── requirements.txt
+│   └── .env.example
+└── README.md
 ```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.9+
 - Node.js 18+
-- MongoDB 5.0+
-- npm or yarn
-
-### Backend Setup
-
-1. Navigate to the backend directory:
-```bash
-cd backend
-```
-
-2. Create a virtual environment and activate it:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Copy `.env.example` to `.env` and configure your environment variables:
-```bash
-cp .env.example .env
-```
-
-5. Run the development server:
-```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-The API will be available at `http://localhost:8000`
-API documentation: `http://localhost:8000/docs`
+- Python 3.9+
+- Firebase account
+- Cloudinary account
+- SMTP email service (Gmail, SendGrid, etc.)
 
 ### Frontend Setup
 
@@ -123,146 +157,222 @@ cd frontend
 npm install
 ```
 
-3. Copy `.env.example` to `.env` and configure your environment variables:
+3. Create `.env` file from `.env.example`:
 ```bash
 cp .env.example .env
 ```
 
-4. Run the development server:
+4. Configure your environment variables:
+```env
+# Firebase Configuration
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+# Cloudinary Configuration
+VITE_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+VITE_CLOUDINARY_API_KEY=your_cloudinary_api_key
+VITE_CLOUDINARY_UPLOAD_PRESET=property_images
+
+# API Configuration
+VITE_API_URL=http://localhost:8000/api
+```
+
+5. Run the development server:
 ```bash
 npm run dev
 ```
 
 The app will be available at `http://localhost:5173`
 
-### ML Module Setup
+### Backend Setup
 
-1. Navigate to the ml_module directory:
+1. Navigate to the backend directory:
 ```bash
-cd ml_module
+cd backend
 ```
 
-2. Install dependencies (if not already installed from backend):
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Train the initial model with sample data:
+4. Create `.env` file:
 ```bash
-python train.py
+cp .env.example .env
 ```
 
-## Environment Variables
-
-### Backend (.env)
-
+5. Configure SMTP settings:
 ```env
-# MongoDB
-MONGODB_URL=mongodb://localhost:27017
-DATABASE_NAME=retail_assistant
-
-# JWT
-SECRET_KEY=your-secret-key-here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-# Email (Brevo/Sendinblue)
-BREVO_API_KEY=your-brevo-api-key
-BREVO_SENDER_EMAIL=noreply@yourapp.com
-
-# SMS (Africa's Talking)
-AFRICASTALKING_USERNAME=your-username
-AFRICASTALKING_API_KEY=your-api-key
-AFRICASTALKING_SENDER=YourApp
-
-# Stripe (for subscriptions)
-STRIPE_SECRET_KEY=your-stripe-secret-key
-STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_password
 ```
 
-### Frontend (.env)
-
-```env
-VITE_API_URL=http://localhost:8000/api
-VITE_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
-```
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `POST /api/auth/refresh` - Refresh access token
-
-### Products
-- `GET /api/products` - List all products
-- `POST /api/products` - Create product
-- `GET /api/products/{id}` - Get product details
-- `PUT /api/products/{id}` - Update product
-- `DELETE /api/products/{id}` - Delete product
-
-### Sales
-- `POST /api/sales` - Record sale
-- `GET /api/sales` - List sales history
-- `GET /api/sales/analytics` - Get sales analytics
-
-### Forecasting
-- `POST /api/forecast/demand` - Get demand forecast
-- `POST /api/forecast/pricing` - Get pricing recommendations
-- `GET /api/forecast/reorder-points` - Get reorder point suggestions
-
-### Inventory
-- `GET /api/inventory/alerts` - Get low-stock alerts
-- `GET /api/inventory/summary` - Get inventory summary
-
-### Events
-- `GET /api/events/holidays` - Get Nigerian holidays
-- `POST /api/events/custom` - Add custom local event
-
-## Testing
-
-### Backend Tests
+6. Run the server:
 ```bash
-cd backend
-pytest
+python -m uvicorn app.main:app --reload --port 8000
 ```
 
-### Frontend Tests
-```bash
-cd frontend
-npm test
-```
+The API will be available at `http://localhost:8000`
+
+## Firebase Setup
+
+1. Create a Firebase project at https://console.firebase.google.com
+2. Enable Authentication (Email/Password and Google)
+3. Create a Firestore database
+4. Enable Storage
+5. Add your web app and copy the configuration
+6. Update the `.env` file with your Firebase credentials
+
+### Firestore Collections
+
+Create the following collections:
+
+- **users**: User profiles
+  ```json
+  {
+    "uid": "string",
+    "email": "string",
+    "displayName": "string",
+    "isPremium": "boolean",
+    "favorites": "array",
+    "createdAt": "timestamp"
+  }
+  ```
+
+- **properties**: Property listings
+  ```json
+  {
+    "title": "string",
+    "description": "string",
+    "price": "number",
+    "location": "string",
+    "type": "string",
+    "bedrooms": "number",
+    "bathrooms": "number",
+    "size": "number",
+    "images": "array",
+    "features": "array",
+    "featured": "boolean",
+    "createdAt": "timestamp"
+  }
+  ```
+
+- **mortgageApplications**: Mortgage applications
+  ```json
+  {
+    "userId": "string",
+    "bank": "string",
+    "amount": "number",
+    "status": "string",
+    "monthlyIncome": "number",
+    "creditScore": "number",
+    "createdAt": "timestamp"
+  }
+  ```
+
+- **mortgageProducts**: Mortgage products
+  ```json
+  {
+    "bank": "string",
+    "rate": "number",
+    "minIncome": "number",
+    "minCreditScore": "number",
+    "minDownPayment": "number"
+  }
+  ```
+
+## Cloudinary Setup
+
+1. Create account at https://cloudinary.com
+2. Go to Settings > Upload
+3. Create an upload preset named "property_images"
+4. Set it to "Unsigned"
+5. Update `.env` with your cloud name
+
+## AI Rent Prediction
+
+The platform uses a proprietary algorithm to calculate fair rent predictions based on:
+
+- Property location (premium areas like Ikoyi, Victoria Island)
+- Number of bedrooms
+- Property type (apartment, detached, semi-detached)
+- Property size
+- Market trends
+
+The AI provides confidence scores and detailed breakdowns of factors affecting the rent prediction.
+
+## Nigerian Mortgage Banks Integration
+
+The platform features mortgage products from:
+
+- Nigeria Mortgage Refinance Company (NMRC) - 6.5% interest
+- Federal Mortgage Bank of Nigeria (FMBN) - 6.0% interest
+- First Bank Mortgage - 15.0% interest
+- GTBank Mortgage - 14.5% interest
+- Access Bank Mortgage - 15.5% interest
+- Zenith Bank Mortgage - 14.0% interest
+- Stanbic IBTC Mortgage - 16.0% interest
+- Union Bank Mortgage - 15.0% interest
+
+## Mobile Responsiveness
+
+The entire platform is fully responsive and optimized for:
+- Desktop (1920px+)
+- Laptop (1024px - 1919px)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
+
+## SEO Optimization
+
+- React Helmet Async for meta tags
+- Semantic HTML structure
+- Optimized images through Cloudinary
+- Server-side rendering ready
+- Sitemap generation
+- Keywords targeting Nigerian property market
 
 ## Deployment
 
-### Backend Deployment (Railway/Render)
+### Frontend (Vercel/Netlify)
 
-1. Set environment variables in your platform
-2. Deploy from GitHub repository
-3. Ensure MongoDB is accessible
-4. Set up scheduled tasks for weekly reports
-
-### Frontend Deployment (Vercel/Netlify)
-
-1. Connect GitHub repository
+1. Connect your GitHub repository
 2. Set build command: `npm run build`
 3. Set publish directory: `dist`
-4. Add environment variables
+4. Add all environment variables
+5. Deploy
 
-## Features Roadmap
+### Backend (Railway/Render)
 
-- [ ] Barcode scanner integration with device camera
-- [ ] WhatsApp Business API integration
-- [ ] Multi-store management
-- [ ] Employee role-based access
-- [ ] POS hardware integration
-- [ ] Competitor price scraping
-- [ ] Advanced analytics dashboard
-- [ ] Mobile apps (React Native)
+1. Connect GitHub repository
+2. Set start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+3. Add environment variables
+4. Deploy
+
+### Firebase Hosting
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+npm run build
+firebase deploy
+```
 
 ## Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+Contributions are welcome! Please read the contributing guidelines before submitting pull requests.
 
 ## License
 
@@ -270,10 +380,18 @@ MIT License - see LICENSE file for details
 
 ## Support
 
-For support, email support@yourapp.com or join our WhatsApp community.
+For support:
+- Email: info@nigeriapropertyhub.com
+- Phone: +234 800 123 4567
+- Website: https://nigeriapropertyhub.com
 
 ## Acknowledgments
 
-- Nigerian traders who provided valuable feedback
-- Open-source ML libraries that power the forecasting engine
-- Africa's Talking for SMS infrastructure
+- Nigerian property market data providers
+- Firebase for backend infrastructure
+- Cloudinary for image optimization
+- The Nigerian real estate community
+
+---
+
+Built with ❤️ to address Nigeria's housing deficit

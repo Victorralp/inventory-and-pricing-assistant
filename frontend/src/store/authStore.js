@@ -1,30 +1,20 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 const useAuthStore = create(
   persist(
     (set) => ({
       user: null,
       isAuthenticated: false,
-      
-      setUser: (user) => set({ user, isAuthenticated: true }),
-      
-      logout: () => {
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
-        set({ user: null, isAuthenticated: false })
-      },
-      
-      updateUser: (userData) =>
-        set((state) => ({
-          user: { ...state.user, ...userData },
-        })),
+      isPremium: false,
+      setUser: (user) => set({ user, isAuthenticated: !!user }),
+      setPremium: (isPremium) => set({ isPremium }),
+      logout: () => set({ user: null, isAuthenticated: false, isPremium: false }),
     }),
     {
       name: 'auth-storage',
-      partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
     }
   )
-)
+);
 
-export default useAuthStore
+export default useAuthStore;
